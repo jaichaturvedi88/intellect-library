@@ -472,6 +472,8 @@ ul { list-style: none; }
 @media (max-width: 680px) {
   .section { padding: 60px 0; }
   .section-title { font-size: 1.9rem; }
+  .logo-text .tagline { display: none; }
+  #navbar { background: rgba(15,30,24,.95); }
   .nav-links { display: none; flex-direction: column; position: fixed; top: 0; right: -100%; width: 260px; height: 100vh; background: var(--dark); padding: 5rem 2rem 2rem; gap: 1.5rem; transition: var(--transition); }
   .nav-links.open { display: flex; right: 0; }
   .hamburger { display: flex; }
