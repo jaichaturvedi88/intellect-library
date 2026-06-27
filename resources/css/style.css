@@ -474,14 +474,40 @@ ul { list-style: none; }
   .section-title { font-size: 1.9rem; }
   .logo-text .tagline { display: none; }
   #navbar { background: rgba(15,30,24,.95); }
+  #hero { height: auto; min-height: 100vh; padding: 90px 0 3rem; align-items: flex-start; }
+  #hero h1 { font-size: 2rem; }
+  .hero-desc { font-size: 1rem; margin-bottom: 1.5rem; }
+  .hero-stats { gap: 1.2rem; margin-top: 2rem; }
+  .stat .number { font-size: 1.6rem; }
+  .hero-scroll { bottom: 1rem; }
   .nav-links { display: none; flex-direction: column; position: fixed; top: 0; right: -100%; width: 260px; height: 100vh; background: var(--dark); padding: 5rem 2rem 2rem; gap: 1.5rem; transition: var(--transition); }
   .nav-links.open { display: flex; right: 0; }
   .hamburger { display: flex; }
-  .hero-stats { gap: 1.5rem; }
   .gallery-grid { grid-template-columns: 1fr; }
   .gallery-item:nth-child(1) { grid-column: span 1; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .footer-bottom { flex-direction: column; text-align: center; }
   .plans-grid { grid-template-columns: 1fr; }
+  .plan-card.popular { transform: none; }
+}
+
+/* Landscape mobile — catches all phones rotated sideways regardless of width */
+@media (orientation: landscape) and (max-height: 520px) {
+  .logo-text .tagline { display: none; }
+  #navbar { background: rgba(15,30,24,.95); padding: .5rem 0; }
+  .nav-links { display: none; flex-direction: column; position: fixed; top: 0; right: -100%; width: 260px; height: 100vh; background: var(--dark); padding: 5rem 2rem 2rem; gap: 1.5rem; transition: var(--transition); z-index: 1001; }
+  .nav-links.open { display: flex; right: 0; }
+  .hamburger { display: flex; }
+  #hero { height: auto; min-height: 100vh; padding: 65px 0 2rem; align-items: flex-start; }
+  .hero-badge { margin-bottom: .4rem; font-size: .7rem; padding: .3rem .8rem; }
+  #hero h1 { font-size: 1.7rem; margin-bottom: .4rem; }
+  .hero-desc { font-size: .9rem; margin-bottom: .8rem; }
+  .hero-cta .btn { padding: .6rem 1.4rem; font-size: .85rem; }
+  .hero-stats { margin-top: .8rem; gap: 2.5rem; }
+  .stat .number { font-size: 1.4rem; }
+  .hero-scroll { display: none; }
+  .section { padding: 45px 0; }
+  .section-title { font-size: 1.7rem; }
+  .plans-grid { grid-template-columns: repeat(2, 1fr); }
   .plan-card.popular { transform: none; }
 }
