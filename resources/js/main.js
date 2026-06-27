@@ -28,6 +28,14 @@ navLinks?.querySelectorAll('a').forEach(a => {
     hamburger.classList.remove('active');
   });
 });
+document.addEventListener('click', (e) => {
+  if (navLinks?.classList.contains('open') &&
+      !navLinks.contains(e.target) &&
+      !hamburger.contains(e.target)) {
+    navLinks.classList.remove('open');
+    hamburger.classList.remove('active');
+  }
+});
 
 // Active nav highlight on scroll
 const sections = document.querySelectorAll('section[id]');
