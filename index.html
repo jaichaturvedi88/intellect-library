@@ -49,8 +49,8 @@
   <link rel="stylesheet" href="resources/css/style.css" />
 
   <!-- ══ Favicon ══ -->
-  <link rel="icon" type="image/png" href="resources/images/logo-new.png" />
-  <link rel="apple-touch-icon" href="resources/images/logo-new.png" />
+  <link rel="icon" type="image/png" href="resources/images/logo.png" />
+  <link rel="apple-touch-icon" href="resources/images/logo.png" />
 
   <!-- ══ Preload critical above-fold image ══ -->
   <link rel="preload" as="image" href="resources/images/gallery-01.jpg" />
@@ -104,81 +104,11 @@
 </head>
 <body>
 
-  <!-- ══════ LOGO COMPARISON PANEL (temporary — remove once you decide) ══════ -->
-  <div id="logo-compare" style="background:#fffdf5;border-bottom:3px solid #c9a84c;padding:1.5rem 2rem;font-family:sans-serif;">
-    <div style="text-align:center;font-size:.7rem;font-weight:700;letter-spacing:.15em;color:#c9a84c;margin-bottom:1.25rem;">LOGO COMPARISON — PICK YOUR PREFERRED OPTION</div>
-
-    <!-- Side-by-side logo swatches -->
-    <div style="display:flex;flex-wrap:wrap;gap:2.5rem;justify-content:center;align-items:flex-start;margin-bottom:1.75rem;">
-
-      <!-- Option A -->
-      <div style="text-align:center;">
-        <div style="font-size:.72rem;font-weight:700;color:#1a3a2f;letter-spacing:.08em;margin-bottom:.6rem;">OPTION A — logo-new.png (Current)</div>
-        <div style="display:flex;gap:1rem;justify-content:center;">
-          <div style="text-align:center;">
-            <div style="background:#fff;border:1px solid #ddd;border-radius:10px;padding:10px;display:inline-block;">
-              <img src="resources/images/logo-new.png" style="width:80px;height:80px;display:block;" alt="logo-new on white" />
-            </div>
-            <div style="font-size:.65rem;color:#999;margin-top:.3rem;">On white</div>
-          </div>
-          <div style="text-align:center;">
-            <div style="background:#1a3a2f;border-radius:10px;padding:10px;display:inline-block;">
-              <img src="resources/images/logo-new.png" style="width:80px;height:80px;display:block;" alt="logo-new on dark" />
-            </div>
-            <div style="font-size:.65rem;color:#999;margin-top:.3rem;">On dark navbar</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="align-self:center;font-size:1.4rem;font-weight:700;color:#c9a84c;">VS</div>
-
-      <!-- Option B -->
-      <div style="text-align:center;">
-        <div style="font-size:.72rem;font-weight:700;color:#1a3a2f;letter-spacing:.08em;margin-bottom:.6rem;">OPTION B — logo.png</div>
-        <div style="display:flex;gap:1rem;justify-content:center;">
-          <div style="text-align:center;">
-            <div style="background:#fff;border:1px solid #ddd;border-radius:10px;padding:10px;display:inline-block;">
-              <img src="resources/images/logo.png" style="width:80px;height:80px;display:block;" alt="logo on white" />
-            </div>
-            <div style="font-size:.65rem;color:#999;margin-top:.3rem;">On white</div>
-          </div>
-          <div style="text-align:center;">
-            <div style="background:#1a3a2f;border-radius:10px;padding:10px;display:inline-block;">
-              <img src="resources/images/logo.png" style="width:80px;height:80px;display:block;" alt="logo on dark" />
-            </div>
-            <div style="font-size:.65rem;color:#999;margin-top:.3rem;">On dark navbar</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Simulated navbar previews -->
-    <div style="max-width:700px;margin:0 auto;">
-      <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;color:#666;margin-bottom:.6rem;text-align:center;">HOW EACH LOOKS IN THE ACTUAL NAVBAR</div>
-      <div style="background:#1a3a2f;display:flex;align-items:center;padding:.75rem 1.25rem;border-radius:8px;margin-bottom:.6rem;gap:.75rem;">
-        <img src="resources/images/logo-new.png" style="width:48px;height:48px;flex-shrink:0;" alt="" />
-        <div>
-          <div style="color:#fff;font-weight:700;font-size:.95rem;">Intellect Library</div>
-          <div style="color:rgba(255,255,255,.55);font-size:.72rem;">Knowledge &bull; Growth &bull; Excellence</div>
-        </div>
-        <span style="margin-left:auto;background:#c9a84c;color:#1a3a2f;font-size:.65rem;font-weight:700;padding:.25rem .55rem;border-radius:4px;">Option A</span>
-      </div>
-      <div style="background:#1a3a2f;display:flex;align-items:center;padding:.75rem 1.25rem;border-radius:8px;gap:.75rem;">
-        <img src="resources/images/logo.png" style="width:48px;height:48px;flex-shrink:0;" alt="" />
-        <div>
-          <div style="color:#fff;font-weight:700;font-size:.95rem;">Intellect Library</div>
-          <div style="color:rgba(255,255,255,.55);font-size:.72rem;">Knowledge &bull; Growth &bull; Excellence</div>
-        </div>
-        <span style="margin-left:auto;background:#c9a84c;color:#1a3a2f;font-size:.65rem;font-weight:700;padding:.25rem .55rem;border-radius:4px;">Option B</span>
-      </div>
-    </div>
-  </div>
-
   <!-- ══════ NAVBAR ══════ -->
   <nav id="navbar" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="#hero" class="logo">
-        <img src="resources/images/logo-new.png" alt="Intellect Library Logo" style="width:48px;height:48px;" />
+        <img src="resources/images/logo.png" alt="Intellect Library Logo" style="width:48px;height:48px;" />
         <div class="logo-text">
           <span class="name">Intellect Library</span>
           <span class="tagline">Knowledge &bull; Growth &bull; Excellence</span>
@@ -530,7 +460,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="#hero" class="logo">
-            <img src="resources/images/logo-new.png" alt="Intellect Library Logo" style="width:48px;height:48px;" />
+            <img src="resources/images/logo.png" alt="Intellect Library Logo" style="width:48px;height:48px;" />
             <div class="logo-text">
               <span class="name" style="font-size:1.1rem;">Intellect Library</span>
               <span class="tagline">Agra, Uttar Pradesh</span>
