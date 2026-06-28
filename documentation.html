@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation — Intellect Library</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:   #2e7d52;
+      --dark:    #0f1e18;
+      --light:   #f5f7f5;
+      --border:  #dde5e0;
+      --text:    #2c3e35;
+      --muted:   #6b7e74;
+      --code-bg: #1e2d26;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--dark);
+      color: #fff;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    header h1 { font-size: 2rem; font-weight: 700; }
+    header p  { color: #a0c4b0; margin-top: .4rem; font-size: .95rem; }
+
+    nav.toc {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: .9rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem 1.5rem;
+    }
+    nav.toc a { color: var(--green); text-decoration: none; font-size: .88rem; font-weight: 600; }
+    nav.toc a:hover { text-decoration: underline; }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 4rem;
+    }
+
+    section { margin-bottom: 3rem; }
+
+    h2 {
+      font-size: 1.4rem;
+      color: var(--dark);
+      border-left: 4px solid var(--green);
+      padding-left: .75rem;
+      margin-bottom: 1.2rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      color: var(--green);
+      margin: 1.4rem 0 .5rem;
+    }
+
+    p { margin-bottom: .8rem; }
+
+    ul, ol { margin: .5rem 0 .8rem 1.4rem; }
+    li { margin-bottom: .3rem; }
+
+    a { color: var(--green); }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e8f4ee;
+      color: var(--green);
+      border: 1px solid #b2d9c3;
+      border-radius: 4px;
+      padding: .15rem .55rem;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .03em;
+      vertical-align: middle;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .9rem;
+    }
+    th {
+      background: var(--dark);
+      color: #fff;
+      text-align: left;
+      padding: .6rem .9rem;
+      font-weight: 600;
+    }
+    td { padding: .55rem .9rem; border-bottom: 1px solid var(--border); }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #f9fcfa; }
+
+    pre {
+      background: var(--code-bg);
+      color: #a8e6be;
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      overflow-x: auto;
+      font-family: 'Cascadia Code', 'Fira Mono', 'Consolas', monospace;
+      font-size: .85rem;
+      margin: .8rem 0;
+    }
+
+    code {
+      font-family: 'Cascadia Code', 'Fira Mono', 'Consolas', monospace;
+      background: #e8f4ee;
+      color: #1a5c38;
+      padding: .1rem .35rem;
+      border-radius: 3px;
+      font-size: .88em;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .url-box {
+      background: var(--code-bg);
+      color: #7dd3a8;
+      border-radius: 6px;
+      padding: .6rem 1rem;
+      font-family: monospace;
+      font-size: .9rem;
+      word-break: break-all;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: .82rem;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      nav.toc { gap: .3rem .8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Intellect Library — Project Documentation</h1>
+  <p>Tech stack, architecture &amp; deployment reference for developers</p>
+</header>
+
+<nav class="toc">
+  <a href="#overview">Overview</a>
+  <a href="#tech-stack">Tech Stack</a>
+  <a href="#file-structure">File Structure</a>
+  <a href="#css-architecture">CSS Architecture</a>
+  <a href="#responsive">Responsive Design</a>
+  <a href="#seo">SEO &amp; Meta</a>
+  <a href="#local-dev">Local Dev</a>
+  <a href="#git">Git Workflow</a>
+  <a href="#deployment">Deployment</a>
+  <a href="#ignore-rules">Ignore Rules</a>
+</nav>
+
+<main>
+
+  <!-- ── Overview ── -->
+  <section id="overview">
+    <h2>Overview</h2>
+    <p>
+      Intellect Library is a static promotional website for a study library located in Kahrai, Agra,
+      Uttar Pradesh. It is a fully front-end project — no server, no build tool, no framework.
+      Every page is a single <code>index.html</code> file styled with one CSS file and powered by
+      one vanilla JS file.
+    </p>
+    <div class="card">
+      <strong>Business:</strong> Intellect Library, Kahrai, Shamsabad Road, Agra, UP &nbsp;|&nbsp;
+      <strong>Phone:</strong> +91 79835 18266 &nbsp;|&nbsp;
+      <strong>Hours:</strong> 8 AM – 8 PM, 7 days
+    </div>
+  </section>
+
+  <!-- ── Tech Stack ── -->
+  <section id="tech-stack">
+    <h2>Tech Stack</h2>
+
+    <h3>Core</h3>
+    <table>
+      <thead><tr><th>Layer</th><th>Technology</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Markup</td><td>HTML5 <span class="badge">semantic</span></td><td>Single-page static HTML, no templating engine</td></tr>
+        <tr><td>Styling</td><td>CSS3 Custom Properties</td><td>No preprocessor (no SASS/LESS); uses <code>var()</code> tokens</td></tr>
+        <tr><td>Scripting</td><td>Vanilla JavaScript (ES6+)</td><td>No jQuery, no frameworks; all logic in <code>main.js</code></td></tr>
+        <tr><td>Build Tool</td><td><em>None</em></td><td>Files are served as-is; zero build step required</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Third-Party Libraries (CDN)</h3>
+    <table>
+      <thead><tr><th>Library</th><th>Version</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Google Fonts</td>
+          <td>—</td>
+          <td>Playfair Display (headings — 400/600/700/800) &amp; Lato (body — 300/400/600/700)</td>
+        </tr>
+        <tr>
+          <td>Font Awesome</td>
+          <td>6.5.0</td>
+          <td>Icons throughout the page (amenities, social links, stats, etc.)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>JavaScript Features</h3>
+    <ul>
+      <li>Navbar scroll effect — adds <code>.scrolled</code> class after 80 px of scroll</li>
+      <li>Mobile hamburger toggle — CSS-animated ☰ → ✕ transition using span transforms</li>
+      <li>Click-outside-to-close mobile nav</li>
+      <li>Active-section highlight in nav using <code>IntersectionObserver</code></li>
+      <li>Scroll-reveal animations (<code>.reveal</code> → <code>.visible</code>)</li>
+      <li>Counter animation for hero stats on viewport entry</li>
+      <li>Gallery lightbox (pure JS DOM overlay, no library)</li>
+      <li>Smooth scroll for all <code>#anchor</code> links</li>
+      <li>Back-to-top button</li>
+    </ul>
+  </section>
+
+  <!-- ── File Structure ── -->
+  <section id="file-structure">
+    <h2>File Structure</h2>
+    <pre>intellect-library/
+├── index.html                  # Single-page site
+├── documentation.html          # This file (excluded from Netlify deploy)
+├── .gitignore                  # Excludes 01-Temp/ and .netlify/
+├── .netlifyignore              # Excludes 01-Temp/ and documentation.html
+├── .nojekyll                   # Prevents GitHub Pages Jekyll processing
+└── resources/
+    ├── css/
+    │   └── style.css           # All styles (~700 lines)
+    ├── js/
+    │   └── main.js             # All JavaScript (~130 lines)
+    └── images/
+        ├── logo.png            # Navbar + favicon logo (58×58 px display)
+        ├── gallery-01.jpg      # Hero / OG image
+        ├── gallery-03.jpg
+        ├── gallery-05.jpg
+        ├── gallery-07.jpg
+        └── gallery-08.jpg</pre>
+  </section>
+
+  <!-- ── CSS Architecture ── -->
+  <section id="css-architecture">
+    <h2>CSS Architecture</h2>
+
+    <h3>Design Tokens (CSS Custom Properties)</h3>
+    <pre>:root {
+  --primary:    #1a4731;   /* deep forest green */
+  --secondary:  #2e7d52;   /* medium green */
+  --accent:     #4caf7d;   /* bright accent green */
+  --dark:       #0f1e18;
+  --light:      #f5f7f5;
+  --text:       #2c3e35;
+  --transition: all .3s ease;
+}</pre>
+
+    <h3>Key Sections in style.css</h3>
+    <table>
+      <thead><tr><th>CSS Block</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>CSS reset + root tokens</td><td>Baseline normalisation, color &amp; transition variables</td></tr>
+        <tr><td><code>#navbar</code></td><td>Fixed top nav with glassmorphism + scroll-dark variant</td></tr>
+        <tr><td><code>.hamburger</code> + active states</td><td>Three-span ☰ that animates to ✕ on <code>.active</code></td></tr>
+        <tr><td><code>#hero</code></td><td>Full-viewport hero with gradient overlay, badge, stats</td></tr>
+        <tr><td><code>.plans-grid</code></td><td>3-column membership card layout</td></tr>
+        <tr><td><code>.gallery-grid</code></td><td>CSS Grid photo gallery with featured first image spanning 2 cols</td></tr>
+        <tr><td><code>.reveal</code></td><td>Opacity + translateY scroll-reveal animation</td></tr>
+        <tr><td>Media queries</td><td>See Responsive Design section below</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ── Responsive Design ── -->
+  <section id="responsive">
+    <h2>Responsive Design</h2>
+    <p>No CSS framework. All responsive behaviour is written with hand-crafted media queries.</p>
+
+    <table>
+      <thead><tr><th>Breakpoint</th><th>Target</th><th>Key Changes</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>max-width: 900px</code></td>
+          <td>Tablets</td>
+          <td>Hamburger menu shown; plans grid → 2 columns</td>
+        </tr>
+        <tr>
+          <td><code>max-width: 680px</code></td>
+          <td>Portrait phones</td>
+          <td>Nav tagline hidden; hero padding adjusted; single-column gallery &amp; plans; footer stacked</td>
+        </tr>
+        <tr>
+          <td><code>max-width: 480px</code></td>
+          <td>Small phones</td>
+          <td>Further font &amp; spacing reductions</td>
+        </tr>
+        <tr>
+          <td><code>orientation: landscape</code><br><code>max-height: 520px</code></td>
+          <td>Landscape phones</td>
+          <td>Compact navbar; hero height auto with reduced padding; 2-col gallery &amp; plans; scroll indicator hidden</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Mobile Nav Behaviour</h3>
+    <p>
+      On screens ≤900 px wide (or landscape phones), the nav links slide in from the right as a
+      260 px fixed drawer (<code>right: -100%</code> → <code>right: 0</code>). The hamburger icon
+      animates to an ✕ via CSS <code>transform</code>. The drawer closes on:
+    </p>
+    <ul>
+      <li>clicking a nav link</li>
+      <li>clicking anywhere outside the drawer</li>
+      <li>clicking the ✕ hamburger again</li>
+    </ul>
+  </section>
+
+  <!-- ── SEO & Meta ── -->
+  <section id="seo">
+    <h2>SEO &amp; Meta</h2>
+
+    <h3>Head Tags</h3>
+    <ul>
+      <li><strong>Primary SEO:</strong> <code>&lt;title&gt;</code>, <code>description</code>, <code>keywords</code>, <code>robots</code>, canonical URL</li>
+      <li><strong>Geo / Local SEO:</strong> <code>geo.region</code>, <code>geo.placename</code>, <code>geo.position</code>, <code>ICBM</code> (lat/lng 27.138, 78.044)</li>
+      <li><strong>Open Graph:</strong> <code>og:type</code>, <code>og:url</code>, <code>og:title</code>, <code>og:description</code>, <code>og:image</code> (1600×1067)</li>
+      <li><strong>Twitter Card:</strong> <code>summary_large_image</code></li>
+    </ul>
+
+    <h3>Structured Data (JSON-LD)</h3>
+    <p>
+      A <code>LocalBusiness</code> schema is embedded in <code>&lt;script type="application/ld+json"&gt;</code>
+      covering name, address, geo coordinates, telephone, opening hours, price range, and social profiles.
+    </p>
+
+    <h3>Performance Optimisations</h3>
+    <ul>
+      <li><code>&lt;link rel="preconnect"&gt;</code> for Google Fonts domains</li>
+      <li><code>&lt;link rel="preload" as="image"&gt;</code> for above-fold gallery image</li>
+      <li>Font Awesome loaded from Cloudflare CDN (cached globally)</li>
+    </ul>
+  </section>
+
+  <!-- ── Local Dev ── -->
+  <section id="local-dev">
+    <h2>Local Development</h2>
+    <p>No install or build step needed. Serve the root folder with any static file server.</p>
+
+    <h3>Python (recommended — pre-installed on most systems)</h3>
+    <pre># Python 3
+python -m http.server 8000
+
+# Python 2 (legacy)
+python -m SimpleHTTPServer 8000</pre>
+    <p>Then open <code>http://localhost:8000</code> in a browser.</p>
+
+    <h3>Node.js alternatives</h3>
+    <pre># One-liner with npx (no install)
+npx serve .
+
+# Or install globally
+npm install -g serve
+serve .</pre>
+
+    <h3>VS Code</h3>
+    <p>Install the <strong>Live Server</strong> extension and click <em>Go Live</em> in the status bar.</p>
+  </section>
+
+  <!-- ── Git Workflow ── -->
+  <section id="git">
+    <h2>Git Workflow</h2>
+
+    <h3>Repository</h3>
+    <div class="url-box">https://github.com/jaichaturvedi88/intellect-library</div>
+
+    <h3>Branch Strategy</h3>
+    <p>Single <code>main</code> branch. All changes are committed directly to <code>main</code> and pushed when ready.</p>
+
+    <h3>Commit Convention</h3>
+    <ul>
+      <li>Short, descriptive imperative messages (e.g. <em>"Fix mobile landscape hero overlap"</em>)</li>
+      <li>No co-author trailers</li>
+    </ul>
+
+    <h3>Common Commands</h3>
+    <pre># Stage specific files
+git add resources/css/style.css resources/js/main.js
+
+# Commit
+git commit -m "Your message here"
+
+# Push to origin
+git push origin main
+
+# View recent commits
+git log --oneline -10</pre>
+
+    <h3>Ignored Paths</h3>
+    <table>
+      <thead><tr><th>File</th><th>Ignored Paths</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td><code>.gitignore</code></td><td><code>01-Temp/</code>, <code>.netlify/</code></td><td>Local working folder; Netlify CLI state</td></tr>
+        <tr><td><code>.netlifyignore</code></td><td><code>01-Temp/</code>, <code>documentation.html</code></td><td>Same + this doc file excluded from public deploy</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ── Deployment ── -->
+  <section id="deployment">
+    <h2>Deployment</h2>
+    <p>The site is deployed to two platforms simultaneously from the same <code>main</code> branch.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <strong>GitHub Pages</strong><br>
+        <small style="color:#6b7e74">Auto-deploys on push to main</small>
+        <div class="url-box" style="margin-top:.7rem">https://jaichaturvedi88.github.io/intellect-library/</div>
+        <ul style="margin-top:.8rem;font-size:.88rem">
+          <li>Configured in: Settings → Pages → Deploy from branch → <code>main / (root)</code></li>
+          <li><code>.nojekyll</code> file prevents GitHub's Jekyll processor from interfering</li>
+          <li>No CLI needed — push triggers deploy automatically</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <strong>Netlify</strong><br>
+        <small style="color:#6b7e74">Manual deploy via Netlify CLI</small>
+        <div class="url-box" style="margin-top:.7rem">https://intellectlibrary.netlify.app</div>
+        <ul style="margin-top:.8rem;font-size:.88rem">
+          <li>Site name: <code>intellectlibrary</code></li>
+          <li>Account: jai.chaturvedi88@gmail.com</li>
+          <li>No build command — <code>--no-build</code> flag used</li>
+          <li>Publish directory: <code>.</code> (project root)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Netlify Deploy Command</h3>
+    <pre>netlify deploy --dir . --prod --site intellectlibrary --no-build</pre>
+
+    <h3>Netlify CLI Setup (one-time)</h3>
+    <pre># Install Netlify CLI globally
+npm install -g netlify-cli
+
+# Authenticate (opens browser)
+netlify login</pre>
+
+    <h3>Custom Domain</h3>
+    <p>
+      The canonical URL in HTML and JSON-LD is set to <code>https://www.intellectlibrary.in/</code>.
+      When a custom domain is connected, update the Netlify domain settings and verify DNS records.
+    </p>
+  </section>
+
+  <!-- ── Ignore Rules ── -->
+  <section id="ignore-rules">
+    <h2>Ignore Rules</h2>
+
+    <h3>.gitignore</h3>
+    <pre>01-Temp/
+.netlify/</pre>
+
+    <h3>.netlifyignore</h3>
+    <pre>01-Temp/
+documentation.html</pre>
+
+    <p>
+      <code>documentation.html</code> is tracked in Git (visible to developers via GitHub) but
+      excluded from the public Netlify deployment so visitors never see it.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  Intellect Library — Internal Documentation &nbsp;|&nbsp; Not for public distribution
+</footer>
+
+</body>
+</html>
